@@ -1,0 +1,182 @@
+/*
+ * kenfox.net
+ * v1.0
+ * Author: Jordan Mirrer
+ * Built on top of Twitter Bootstrap
+ *
+ * Copyright 2013 Ken Fox
+ *
+ */
+
+/* UNIVERSAL */ 
+	body{
+		font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+		font-size: 14px;
+		line-height: 1.428571429;
+		color: #F8F8F8;
+		background-color: #353535;
+	 }
+ 
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+	  font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	  font-weight: 200;
+	  line-height: 1.1;
+	} 
+
+	a {
+		color: #F8F8F8;
+	}
+	
+	a:hover{
+		color: #ffffff;
+		text-decoration: none;
+		text-shadow: 0px 0px 2px #ffffff;
+		filter: dropshadow(color=#ffffff, offx=0, offy=0);
+		}
+	
+	a.thumbnail{
+		border: none;
+	}	
+	a.thumbnail:hover{
+	 	border: none;
+	}
+	
+	.header{
+		margin-top: 40px;
+	}
+
+	h1.title{
+		font-size: 2.5em;
+		margin-left: 40px;
+	}
+
+	.contact{
+		font-size: 1.75em;
+		margin-top: 1.4em;
+		margin-left: 60px;
+	}
+	
+	.reel {	
+	}
+	
+	.reel:hover{
+		text-shadow: 0px 0px 2px #ffffff;
+		filter: dropshadow(color=#ffffff, offx=0, offy=0);
+
+	}
+
+	/* Video Thumbnails */
+
+	.thumbnail{
+		background-position: 0 0;
+		width: 196px;
+		height: 110px;
+	}
+
+	.thumbnail:hover{
+		background-position: 196px 0;
+	}
+	
+	.video-title {
+		text-align: right;
+		float: right;
+		font-size: .8em;
+		letter-spacing: .2em;
+	}
+	
+	.col-video{
+		width: 234px;
+		margin-top: 2em;
+	}
+		
+	.row.videos {
+		margin-top: 3em;
+		margin-left:25px;
+	}
+	
+	/* MODAL */
+	.modal {
+		background-color: rgba(255, 255, 255, 0.09);
+	}
+	
+	.modal-dialog{
+		width: 100%;
+	}
+	
+	.modal-content{
+		background-color: #353535;
+	}
+	
+	.close{
+		opacity: 0.8;
+		color: #F8F8F8;
+	}
+	.close:hover{
+		opacity: 0.5;
+		color:#F8F8F8;
+	}
+	
+	.modal-title{
+
+	}
+	
+	.modal-footer{
+		margin-top: 0;
+	}
+	
+	/* VIDEO PLAYER */	
+	.videoPlayer{
+		width: 100%;
+		height: auto;
+	}
+
+/* PHONE - LARGER PORTRAIT */
+@media (min-width: 401px) {
+	
+}
+
+/* TABLET - PORTRAIT */
+@media (min-width: 768px) {
+	
+	h1.title{
+		font-size: 3em;
+		letter-spacing: .2em;
+	}
+	
+	.row.videos {
+		margin-left: -15px;
+	}
+	
+	.modal-dialog{
+		width: 700px;
+	}
+	
+}
+
+/* DESKTOP + TABLET LANDSCAPE */
+@media (min-width: 992px) {
+	h1.title {
+		margin-left: 50px;
+	}
+	
+	.contact {
+		margin-left: 0;
+	}
+}
+
+/* LARGE DESKTOP + TABLET */
+@media (min-width: 1200px) {
+
+}
+
