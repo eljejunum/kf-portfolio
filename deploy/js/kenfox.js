@@ -15,7 +15,7 @@ $(document).ready(function() {
 	var videoArray = new Array();
 		videoArray[0] = ["truth 'nightclub'", "truth_nightclub_h264_16x9.mov", "thumbs_nightclub.png"];
 		videoArray[1] = ["psa 'future prisoner'", "prisoner_h264_16x9.mov", "thumbs_prisoner.png"];
-		videoArray[2] = ["asics 'arrows'", "asics_arrows_AIRAUDIO_360.mov", "thumbs_asics.png"];
+		videoArray[2] = ["asics 'arrows'", "asics_website", "thumbs_asics.png"];
 		videoArray[3] = ["scion frs 'performance'", "scion_frs_performance_360.mov", "thumbs_scion.png"];
 		videoArray[4] = ["truth 'parachute'", "truth_parachute_h264_16x9.mov", "thumbs_parachute.png"];
 		videoArray[5] = ["truth 'cowboy'", "truth_western_h264_16x9.mov", "thumbs_truth.png"];
@@ -29,6 +29,7 @@ $(document).ready(function() {
 		videoArray[13] = ["the freestylers", "freestylers_h264_16x9.mov", "thumbs_freestylers.png"];
 		videoArray[14] = ["blues traveler", "blues_traveler_mtns_h264_16x9.mov", "thumbs_bluesTraveler.png"];
 	
+	//Apply Video Thumbnails to grid
 	for(var i=0; i < numVideos; i++){
 		var videoTitle = videoArray[i][0];
 		var video = videoPath + videoArray[i][1];
@@ -41,12 +42,28 @@ $(document).ready(function() {
 		$(videoTitleID).html(videoTitle);
 	}
 	
+	//Initialize Media Element
+	/*$('video,audio').mediaelementplayer();*/
+	
+	//Queue correct video when you click on the thumbnail
 	$(".thumbnail").click(function(){
 		var videoID = $(this).attr("index");
-		console.log(videoID);
-		
-		$(".modal-title").html(videoArray[videoID][0]);
-		
+		var videoTitle = videoArray[videoID][0];
+		var videoPoster = "images/posters/" + videoArray[videoID][1]
+		var videoSrc = "video/" + videoArray[videoID][1];
+		//console.log(videoID);		
+		$(".modal-title").html(videoTitle);
+		$("#videoPlayer").attr("poster", videoPoster + ".png");
+		$("#portfolio-mp4").attr("src", videoSrc + ".mp4");
+		$("#portfolio-webm").attr("src", "http://video-js.zencoder.com/oceans-clip.webm"); //videoSrc + ".webm");
+		$("#portfolio-ogv").attr("src", "http://video-js.zencoder.com/oceans-clip.ogv"); //videoSrc + ".ogv");
+	});
+	
+	//Pause/Stop all videos on closing modal
+	$(".pause").click(function(){
+		$('video, audio').each(function() {
+        	$(this)[0].pause();	
+		})
 	});
 	
 });

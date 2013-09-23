@@ -82,6 +82,9 @@
 		background-position: 0 0;
 		width: 196px;
 		height: 110px;
+		border-radius: 0;
+		-webkit-transition: none;
+		transition: none;
 	}
 
 	.thumbnail:hover{
@@ -93,10 +96,11 @@
 		float: right;
 		font-size: .8em;
 		letter-spacing: .2em;
+		opacity: .8;
 	}
 	
 	.col-video{
-		width: 234px;
+		/*width: 234px;*/
 		margin-top: 2em;
 	}
 		
@@ -136,14 +140,16 @@
 	}
 	
 	/* VIDEO PLAYER */	
-	.videoPlayer{
+	/*.videoPlayer{
 		width: 100%;
 		height: auto;
-	}
-
-/* PHONE - LARGER PORTRAIT */
-@media (min-width: 401px) {
+	}*/
 	
+/* PHONE - LARGER PORTRAIT */
+@media (min-width: 481px) {
+	.col-video{
+		width: 234px;
+	}
 }
 
 /* TABLET - PORTRAIT */
@@ -156,6 +162,10 @@
 	
 	.row.videos {
 		margin-left: -15px;
+	}
+	
+	.thumbnail{
+		
 	}
 	
 	.modal-dialog{
@@ -172,6 +182,10 @@
 	
 	.contact {
 		margin-left: 0;
+	}
+	
+	.col-video{
+		margin-top: 3em;  
 	}
 }
 
