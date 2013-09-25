@@ -139,11 +139,9 @@
 		margin-top: 0;
 	}
 	
-	/* VIDEO PLAYER */	
-	/*.videoPlayer{
+	.reel-dialog{
 		width: 100%;
-		height: auto;
-	}*/
+	}
 	
 /* PHONE - LARGER PORTRAIT */
 @media (min-width: 481px) {
@@ -172,6 +170,10 @@
 		width: 700px;
 	}
 	
+	.reel-dialog{
+		width: 100%;
+		max-width: 1200px;
+	}
 }
 
 /* DESKTOP + TABLET LANDSCAPE */

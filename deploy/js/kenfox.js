@@ -1,11 +1,14 @@
 $(document).ready(function() {
 	
 	//Video Reel
-	var videoReel = "KFOX_reel_master_V2.mov";
+	var videoReel = "KFOX_reel";
+	var reelPoster = "KFOX_reel.png";
 	
 	//Video and Thumb paths
-	var videoPath = "http://kenfox.net/movies_kenfox/";
+	var videoPath = "videos/"; //"http://kenfox.net/movies_kenfox/";
 	var thumbPath = "images/thumbs/";
+	var posterPath = "images/posters/";
+	
 	
 	//Number of videos, not including main reel
 	var numVideos = 15;
@@ -13,21 +16,21 @@ $(document).ready(function() {
 	//Array of videos
 	//Template Structure: videoArray[i] = [video title, video filename, thumbnail filename]
 	var videoArray = new Array();
-		videoArray[0] = ["truth 'nightclub'", "truth_nightclub_h264_16x9.mov", "thumbs_nightclub.png"];
-		videoArray[1] = ["psa 'future prisoner'", "prisoner_h264_16x9.mov", "thumbs_prisoner.png"];
-		videoArray[2] = ["asics 'arrows'", "asics_website", "thumbs_asics.png"];
-		videoArray[3] = ["scion frs 'performance'", "scion_frs_performance_360.mov", "thumbs_scion.png"];
-		videoArray[4] = ["truth 'parachute'", "truth_parachute_h264_16x9.mov", "thumbs_parachute.png"];
-		videoArray[5] = ["truth 'cowboy'", "truth_western_h264_16x9.mov", "thumbs_truth.png"];
-		videoArray[6] = ["sportsweek 'safari'", "sportweek_h264_16x9.mov", "thumbs_sport.png"];
-		videoArray[7] = ["sega 'roenik'", "sega_nhl_h264_16x9.mov", "thumbs_segaNHL.png"];
-		videoArray[8] = ["crash test dummies", "crash_test_h264_16x9.mov", "thumbs_crashTestDummies.png"];
-		videoArray[9] = ["kia 'lord of rings'", "kia_lords_h264_16x9.mov", "thumbs_lords.png"];
-		videoArray[10] = ["social distortion", "social_distortion_h264_16x9.mov", "thumbs_socialDistortion.png"];
-		videoArray[11] = ["the wallflowers", "wallflowers_h264_16x9.mov", "thumbs_wallflowers.png"];
-		videoArray[12] = ["bell atlantic 'breakup'", "bell_atlantic_breakup_h264_16x9.mov", "thumbs_bellAtlantic.png"];
-		videoArray[13] = ["the freestylers", "freestylers_h264_16x9.mov", "thumbs_freestylers.png"];
-		videoArray[14] = ["blues traveler", "blues_traveler_mtns_h264_16x9.mov", "thumbs_bluesTraveler.png"];
+		videoArray[0] = ["psa 'future prisoner'", "prisoner", "thumbs_prisoner.png"];
+		videoArray[1] = ["asics 'arrows'", "asics", "thumbs_asics.png"];
+		videoArray[2] = ["truth 'nightclub'", "truth_nightclub", "thumbs_nightclub.png"];
+		videoArray[3] = ["scion frs 'performance'", "scion_frs_performance", "thumbs_scion.png"];
+		videoArray[4] = ["truth 'parachute'", "truth_parachute", "thumbs_parachute.png"];
+		videoArray[5] = ["truth 'cowboy'", "truth_western", "thumbs_truth.png"];
+		videoArray[6] = ["sportsweek 'safari'", "sportweek", "thumbs_sport.png"];
+		videoArray[7] = ["sega 'roenik'", "sega_nhl", "thumbs_segaNHL.png"];
+		videoArray[8] = ["crash test dummies", "crash_test", "thumbs_crashTestDummies.png"];
+		videoArray[9] = ["kia 'lord of rings'", "kia_lords", "thumbs_lords.png"];
+		videoArray[10] = ["social distortion", "social_distortion", "thumbs_socialDistortion.png"];
+		videoArray[11] = ["the wallflowers", "wallflowers", "thumbs_wallflowers.png"];
+		videoArray[12] = ["bell atlantic 'breakup'", "bell_atlantic", "thumbs_bellAtlantic.png"];
+		videoArray[13] = ["the freestylers", "freestylers", "thumbs_freestylers.png"];
+		videoArray[14] = ["blues traveler", "blues_traveler", "thumbs_bluesTraveler.png"];
 	
 	//Apply Video Thumbnails to grid
 	for(var i=0; i < numVideos; i++){
@@ -42,6 +45,18 @@ $(document).ready(function() {
 		$(videoTitleID).html(videoTitle);
 	}
 	
+	//Check Browser Video Support
+	var videoExtension = "";
+	if(Modernizr.video) {
+		if(Modernizr.video.h264) {
+			videoExtension = ".mp4";
+		} else if(Modernizr.video.webm) {
+			videoExtension = ".webm";
+		} else if(Modernizr.video.ogv) {
+			videoExtension = ".ogv";
+		}
+	}
+	
 	//Initialize Media Element
 	/*$('video,audio').mediaelementplayer();*/
 	
@@ -49,21 +64,24 @@ $(document).ready(function() {
 	$(".thumbnail").click(function(){
 		var videoID = $(this).attr("index");
 		var videoTitle = videoArray[videoID][0];
-		var videoPoster = "images/posters/" + videoArray[videoID][1]
-		var videoSrc = "video/" + videoArray[videoID][1];
-		//console.log(videoID);		
-		$(".modal-title").html(videoTitle);
+		var videoPoster = posterPath + videoArray[videoID][1]
+		var videoSrc = videoPath + videoArray[videoID][1];
+		$("#modal-video-title").html(videoTitle);
 		$("#videoPlayer").attr("poster", videoPoster + ".png");
-		$("#portfolio-mp4").attr("src", videoSrc + ".mp4");
-		$("#portfolio-webm").attr("src", "http://video-js.zencoder.com/oceans-clip.webm"); //videoSrc + ".webm");
-		$("#portfolio-ogv").attr("src", "http://video-js.zencoder.com/oceans-clip.ogv"); //videoSrc + ".ogv");
+		$("#videoPlayer").attr("src", videoSrc + videoExtension);
 	});
+	
+	//Set Reel Video Clip
+	$("#reelPlayer").attr("poster", posterPath + reelPoster);
+	$("#reelPlayer").attr("src", videoPath + videoReel + videoExtension);
 	
 	//Pause/Stop all videos on closing modal
 	$(".pause").click(function(){
 		$('video, audio').each(function() {
         	$(this)[0].pause();	
 		})
+		$(".videoPlayer").attr("src", "");
+		$(".videoPlayer").currentTime = 0;
 	});
 	
 });

@@ -26,6 +26,7 @@
     <![endif]-->
     
     <!-- JS -->
+    <script type="text/javascript" src="js/modernizr.min.js"></script>
     <script type="text/javascript" src="js/kenfox.js"></script>
     
   </head>
@@ -135,21 +136,21 @@
 
 	<!-- REEL Modal -->
   <div class="modal fade" id="reel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog reel-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <button type="button" class="close pause" data-dismiss="modal" aria-hidden="true">&times;</button>
           <h4 class="modal-title">reel</h4>
         </div>
         <div class="modal-body">
-        	<video class="videoPlayer">
+        	<video class="videoPlayer" id="reelPlayer" controls="controls" preload="none" poster="" style="width:100%; height:auto;">
         		<source id="reel-mp4" src="" type='video/mp4' />
 				<source id="reel-webm" src="" type='video/webm' />
 				<source id="reel-ogg" src="" type='video/ogg' />
         	</video>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default pause" data-dismiss="modal">Close</button>
         </div>
       </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -161,13 +162,13 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close pause" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title">Video Title</h4>
+          <h4 class="modal-title" id="modal-video-title">Video Title</h4>
         </div>
         <div class="modal-body">
-        		<video id="videoPlayer" controls="controls" preload="none" poster="" style="width:100%; height:auto;">
-					<source id="portfolio-mp4" src="" type='video/mp4' />
-					<source id="portfolio-webm" src="" type='video/webm' />
-					<source id="portfolio-ogv" src="" type='video/ogg' />
+        		<video class="videoPlayer" id="videoPlayer" src="" controls="controls" preload="none" poster="" style="width:100%; height:auto;">
+					<!--<source class="video-source" id="portfolio-mp4" src="" type='video/mp4' />
+					<source class="video-source" id="portfolio-webm" src="" type='video/webm' />
+					<source class="video-source" id="portfolio-ogv" src="" type='video/ogg' />-->
 				</video>
         </div>
         <div class="modal-footer">
