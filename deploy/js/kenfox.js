@@ -19,11 +19,11 @@ $(document).ready(function() {
 		videoArray[0] = ["psa 'future prisoner'", "prisoner", "thumbs_prisoner.png"];
 		videoArray[1] = ["asics 'arrows'", "asics", "thumbs_asics.png"];
 		videoArray[2] = ["truth 'nightclub'", "truth_nightclub", "thumbs_nightclub.png"];
-		videoArray[3] = ["scion frs 'performance'", "scion_frs_performance", "thumbs_scion.png"];
+		videoArray[3] = ["scion frs 'performance'<br/><a href='http://www.scionav.com/frs'>(Link to Website)</a>", "scion_frs_performance", "thumbs_scion.png"];
 		videoArray[4] = ["truth 'parachute'", "truth_parachute", "thumbs_parachute.png"];
 		videoArray[5] = ["truth 'cowboy'", "truth_western", "thumbs_truth.png"];
-		videoArray[6] = ["sportsweek 'safari'", "sportweek", "thumbs_sport.png"];
-		videoArray[7] = ["sega 'roenik'", "sega_nhl", "thumbs_segaNHL.png"];
+		videoArray[6] = ["sportweek 'safari'", "sportweek", "thumbs_sport.png"];
+		videoArray[7] = ["sega 'roenick'", "sega_nhl", "thumbs_segaNHL.png"];
 		videoArray[8] = ["crash test dummies", "crash_test", "thumbs_crashTestDummies.png"];
 		videoArray[9] = ["kia 'lord of rings'", "kia_lords", "thumbs_lords.png"];
 		videoArray[10] = ["social distortion", "social_distortion", "thumbs_socialDistortion.png"];

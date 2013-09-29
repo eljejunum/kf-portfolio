@@ -31,7 +31,7 @@
 	.h6 {
 	  font-family: "Futura", "Helvetica Neue", Helvetica, Arial, sans-serif;
 	  font-weight: 200;
-	  line-height: 1.1;
+	  line-height: 1.1em;
 	} 
 
 	a {
@@ -95,8 +95,9 @@
 		text-align: right;
 		float: right;
 		font-size: .8em;
-		letter-spacing: .2em;
-		opacity: .8;
+		letter-spacing: .1em;
+		opacity: .6;
+		height: 2em;
 	}
 	
 	.col-video{
@@ -148,6 +149,9 @@
 	.col-video{
 		width: 234px;
 	}
+	.video-title{
+		padding-right: 6px;
+	}
 }
 
 /* TABLET - PORTRAIT */
@@ -155,7 +159,7 @@
 	
 	h1.title{
 		font-size: 3em;
-		letter-spacing: .2em;
+		letter-spacing: .1em;
 	}
 	
 	.row.videos {
@@ -165,6 +169,8 @@
 	.thumbnail{
 		
 	}
+	
+	
 	
 	.modal-dialog{
 		width: 700px;
